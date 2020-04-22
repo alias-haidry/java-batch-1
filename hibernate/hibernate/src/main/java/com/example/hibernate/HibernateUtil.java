@@ -1,5 +1,8 @@
 package com.example.hibernate;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -11,6 +14,11 @@ public class HibernateUtil {
 	private static SessionFactory sessionFactory;
 
 	private HibernateUtil() {
+	}
+
+	static {
+		Logger x = Logger.getLogger("org.hibernate");
+		x.setLevel(Level.SEVERE);
 	}
 
 	public static synchronized SessionFactory getSessionFactory() {
